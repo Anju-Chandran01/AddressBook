@@ -99,7 +99,13 @@ public class AddressBook {
     public static void main(String[] args)
     {
         // DISPLAY ADDRESS BOOK WITH A CONTACT
+        System.out.println("Enter details of 1st user");
         AddressBook user1 = new  AddressBook();
         user1.display();
+
+        // ADD ONE MORE CONTACT TO THE ADDRESS BOOK
+        System.out.println("Enter details of 2nd user");
+        AddressBook user2 = new  AddressBook();
+        user2.display();
     }
 }
