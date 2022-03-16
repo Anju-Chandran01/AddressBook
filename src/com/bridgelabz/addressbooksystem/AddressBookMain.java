@@ -131,13 +131,22 @@ public class AddressBookMain {
         }
     }
 
-    // METHOD TO SHOW, ADD, EDIT AND EXIT CONTACT LIST IN ADDRESS BOOK
+    // METHOD TO DELETE CONTACTS IN ADDRESS BOOK
+    public void deleteContact(ArrayList<Contacts> contactList)
+    {
+        System.out.println("Enter the First Name of the contact you wish to delete");
+        String delete = sc.next();
+        contactList.removeIf(contacts -> contacts.firstName.equals(delete));
+    }
+
+    // METHOD TO SHOW, ADD, EDIT AND DELETE CONTACT LIST IN ADDRESS BOOK
     public void addContactList() {
         while (true) {
             System.out.println("Press 0 - Display all contacts");
             System.out.println("Press 1 - Add contact");
             System.out.println("Press 2 - Edit contact");
-            System.out.println("Press 3 - Exit");
+            System.out.println("Press 3 - Delete contact");
+            System.out.println("Press 6 - Exit");
             int option = sc.nextInt();
             sc.nextLine();
 
@@ -145,8 +154,9 @@ public class AddressBookMain {
                 case 0 -> display(contactList);
                 case 1 -> addContact(contactList);
                 case 2 -> editContact();
+                case 3 -> deleteContact(contactList);
             }
-            if (option == 3) {
+            if (option == 6) {
                 break;
             }
         }
