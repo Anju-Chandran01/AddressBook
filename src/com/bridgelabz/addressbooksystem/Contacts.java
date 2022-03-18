@@ -12,9 +12,17 @@ public class Contacts {
     String state;
     int zip;
 
+    @Override
     public String toString() {
-        return "ContactItems [firstName=" + firstName + ", lastName=" + lastName + ", address=" + address + ", city="
-                + city + ", state=" + state + ", zip=" + zip + ", phoneNumber=" + phoneNumber + ", email=" + email
-                + "]";
+        return "Contacts{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", phoneNumber=" + phoneNumber +
+                ", email='" + email + '\'' +
+                ", address='" + address + '\'' +
+                ", city='" + city + '\'' +
+                ", state='" + state + '\'' +
+                ", zip=" + zip +
+                '}';
     }
 }
