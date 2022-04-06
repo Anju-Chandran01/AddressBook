@@ -5,6 +5,7 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class AddressBookMain {
+
     public static Scanner sc = new Scanner(System.in);
     private static final ContactFunctions contactFunctions = new ContactFunctions();
     public Map<String, ContactFunctions> addressBookListMap = new HashMap<>();
@@ -72,35 +73,21 @@ public class AddressBookMain {
         }
 
     }
-
-    private void searchPersonByState(String stateName) {
-        // search person by their State
-        for (Map.Entry<String, ContactFunctions> entry : addressBookListMap.entrySet()) {
-            ContactFunctions value = entry.getValue();
-            System.out.println("The Address Book: " + entry.getKey());
-            value.getPersonNameByState(stateName);
-        }
-    }
-
-    private void searchPersonByCity(String cityName) {
-        // Search person by their  city
-        for (Map.Entry<String, ContactFunctions> entry : addressBookListMap.entrySet()) {
-            ContactFunctions value = entry.getValue();
-            System.out.println("The Address Book: " + entry.getKey());
-            value.getPersonNameByCity(cityName);
-        }
-    }
-
-
     //main method
     public static void main(String[] args) {
         AddressBookMain addressBookMain = new AddressBookMain();
         boolean flag = true;
         while (flag) {
             System.out.println("Enter your choice");
-            System.out.println("Select an option\n" + "1] Add New Address Book\n"
-                    + "2] Find Duplicate Entry in Address Book\n" + "3]Search Contact from a city\n"
-                    + "4]Search Contact from a State\n" + "5]Exit\n" + "Enter your Choice\n");
+            System.out.println("""
+                    Select an option
+                    1] Add New Address Book
+                    2] Find Duplicate Entry in Address Book
+                    3] Search Contact from a city
+                    4] Search Contact from a State
+                    5] Exit
+                    Enter your Choice
+                    """);
             int option = sc.nextInt();
             switch (option) {
                 case 1: {
@@ -137,6 +124,24 @@ public class AddressBookMain {
                     flag = false;
                     break;
             }
+        }
+    }
+
+    private void searchPersonByState(String stateName) {
+        // TODO Auto-generated method stub
+        for (Map.Entry<String, ContactFunctions> entry : addressBookListMap.entrySet()) {
+            ContactFunctions value = entry.getValue();
+            System.out.println("The Address Book: " + entry.getKey());
+            value.getPersonNameByState(stateName);
+        }
+    }
+
+    private void searchPersonByCity(String cityName) {
+        // TODO Auto-generated method stub
+        for (Map.Entry<String, ContactFunctions> entry : addressBookListMap.entrySet()) {
+            ContactFunctions value = entry.getValue();
+            System.out.println("The Address Book: " + entry.getKey());
+            value.getPersonNameByCity(cityName);
         }
     }
 }

@@ -1,9 +1,6 @@
 package com.bridgelabz.addressbooksystem;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Scanner;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class ContactFunctions {
@@ -14,45 +11,47 @@ public class ContactFunctions {
     // Add Contact Details to the AddressBook
     public void addContactDetails(){
         System.out.println("Enter the contact details:");
-        System.out.print("Enter First Name");
+        System.out.println("Enter First Name");
         String firstName = sc.next();
-        System.out.print("Enter last Name");
+        System.out.println("Enter last Name");
         String lastName = sc.next();
-        System.out.print("Enter Address ");
+        System.out.println("Enter Address ");
         String address = sc.next();
-        System.out.print("Enter City ");
+        System.out.println("Enter City ");
         String city = sc.next();
-        System.out.print("Enter State ");
+        System.out.println("Enter State ");
         String state = sc.next();
-        System.out.print("Enter  Email ");
+        System.out.println("Enter  Email ");
         String email = sc.next();
-        System.out.print("Enter phone Number");
+        System.out.println("Enter phone Number");
         String phoneNumber = sc.next();
-        System.out.print("Enter Zip code");
+        System.out.println("Enter Zip code");
         String zip = sc.next();
 
         Contacts contactDetails = new Contacts(firstName, lastName, address, city, state, email, phoneNumber, zip);
         contactList.add(contactDetails);
         System.out.println(contactDetails);
-
     }
+
     // Edit Contact Detail By Firstname
-    public boolean editContactDetails(String Name) {
+    public boolean editContactDetails(String Name)
+    {
         int flag = 0;
         for(Contacts contact: contactList)
         {
             if(contact.getFirstName().equals(Name))
             {
-                System.out.println("""
-                        Select an option to edit
-                        1] First Name
-                        2] Last Name
-                        3] Address
-                        4] City
-                        5] State
-                        6] Email7] phone Number
-                        8] ZIP code
-                        """);
+
+                System.out.println("Select an option to edit\n"
+                        +"1] First Name\n"
+                        +"2] Last Name\n"
+                        +"3] Address\n"
+                        +"4] City\n"
+                        +"5] State\n"
+                        +"6] Email"
+                        +"7] phone Number\n"
+                        +"8] ZIP code\n");
+
                 int choice = sc.nextInt();
                 switch (choice) {
                     case 1 -> {
@@ -62,7 +61,7 @@ public class ContactFunctions {
                         break;
                     }
                     case 2 -> {
-                        System.out.println("Enter last name: ");
+                        System.out.println("Enter Last Name: ");
                         String lastName = sc.next();
                         contact.setLastName(lastName);
                         break;
@@ -113,8 +112,10 @@ public class ContactFunctions {
         else
             return false;
     }
+
     //	Display Contact Details
-    public boolean Display(String Name) {
+    public boolean Display(String Name)
+    {
         int flag = 0;
         for(Contacts contact: contactList)
         {
@@ -130,6 +131,7 @@ public class ContactFunctions {
         else
             return false;
     }
+
     // Delete Contact Details
     public boolean deleteContact(String name) {
         int flag = 0;
@@ -147,6 +149,7 @@ public class ContactFunctions {
         else
             return false;
     }
+
     //Check duplicate
     public void checkDuplicate() {
         Set<String> ContactSet = new HashSet<>();
@@ -156,5 +159,22 @@ public class ContactFunctions {
             System.out.println("The Duplicate Contact is: " + contact.getFirstName() );
         }
     }
-    //
+
+    // Get Person Name by State
+    public void getPersonNameByState(String State) {
+        List<Contacts> list  = contactList.stream().filter(p ->p.getState().equals(State)).collect(Collectors.toList());
+        for(Contacts contact: list){
+            System.out.println("First Name: "+contact.getFirstName());
+            System.out.println("Last Name: "+contact.getLastName());
+        }
+    }
+
+    // Get Person Name by city
+    public void getPersonNameByCity(String cityName) {
+        List<Contacts> list  = contactList.stream().filter(p ->p.getCity().equals(cityName)).collect(Collectors.toList());
+        for(Contacts contact: list){
+            System.out.println("First Name: "+contact.getFirstName());
+            System.out.println("Last Name: "+contact.getLastName());
+        }
+    }
 }
