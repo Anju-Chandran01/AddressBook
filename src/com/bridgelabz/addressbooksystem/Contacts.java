@@ -13,6 +13,7 @@ public class Contacts {
         setEmail(email);
         setPhoneNumber(phoneNumber);
         setZip(zip);
+
     }
 
     public Contacts() {
