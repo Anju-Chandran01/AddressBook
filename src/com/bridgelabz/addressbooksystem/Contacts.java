@@ -13,7 +13,6 @@ public class Contacts {
         setEmail(email);
         setPhoneNumber(phoneNumber);
         setZip(zip);
-
     }
 
     public Contacts() {
@@ -88,13 +87,13 @@ public class Contacts {
     public String toString() {
         return "Contacts [ " +
                 "firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", address='" + address + '\'' +
-                ", city='" + city + '\'' +
-                ", state='" + state + '\'' +
-                ", email='" + email + '\'' +
-                ", zip='" + zip + '\'' +
-                ", phoneNumber=' " + phoneNumber + '\'' +
+                ",  lastName='" + lastName + '\'' +
+                ",  address='" + address + '\'' +
+                ",  city='" + city + '\'' +
+                ",  state='" + state + '\'' +
+                ",  email='" + email + '\'' +
+                ",  zip='" + zip + '\'' +
+                ",  phoneNumber='" + phoneNumber + '\'' +
                 ']';
     }
 }
