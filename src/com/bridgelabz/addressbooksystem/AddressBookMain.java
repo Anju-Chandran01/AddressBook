@@ -87,7 +87,8 @@ public class AddressBookMain {
                     3] Search Contact from a city
                     4] Search Contact from a State
                     5] Find no: of Contacts by counting City
-                    6] Exit
+                    6] Sorting Contacts according to First name.
+                    7] Exit
                     """);
             int option = sc.nextInt();
             switch (option) {
@@ -122,29 +123,38 @@ public class AddressBookMain {
                 case 5: {
                     System.out.println("Enter City Name : ");
                     String city = sc.next();
-                    countByCity(city);
+                    countContactByCity(city);
                     break;
                 }
-                case 6:
+                case 6:{
+                    sortContactByFirstName();
+                }
+                case 7:
                     flag = false;
                     break;
             }
         }
     }
 
-    private static void countByCity(String city) {
+    private static void sortContactByFirstName() {
         for (Map.Entry<String, ContactFunctions> entry : addressBookListMap.entrySet()) {
-            List listPerson = entry.getValue().contactList.stream().filter(p->p.getCity().equals(city)).collect(Collectors.toList());
-            System.out.println("After stream " + listPerson);
-            long total = Stream.of(listPerson).count();
-            System.out.println("Total number of contacts according to city is " + total);
+            ContactFunctions value = entry.getValue();
+            value.getSortedContactList();
+        }
+
+    }
+
+    private static void countContactByCity(String city){
+        for (Map.Entry<String, ContactFunctions> entry : addressBookListMap.entrySet()) {
+            ContactFunctions value = entry.getValue();
+//            System.out.println("The Address Book: " + entry.getKey());
+            value.getCountByCity(city);
         }
     }
 
     private void searchPersonByState(String stateName) {
         for (Map.Entry<String, ContactFunctions> entry : addressBookListMap.entrySet()) {
             ContactFunctions value = entry.getValue();
-            System.out.println("The Address Book: " + entry.getKey());
             value.getPersonNameByState(stateName);
         }
     }
@@ -152,7 +162,6 @@ public class AddressBookMain {
     private void searchPersonByCity(String cityName) {
         for (Map.Entry<String, ContactFunctions> entry : addressBookListMap.entrySet()) {
             ContactFunctions value = entry.getValue();
-            System.out.println("The Address Book: " + entry.getKey());
             value.getPersonNameByCity(cityName);
         }
     }
