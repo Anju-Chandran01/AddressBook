@@ -88,7 +88,8 @@ public class AddressBookMain {
                     4] Search Contact from a State
                     5] Find no: of Contacts by counting City
                     6] Sorting Contacts according to First name.
-                    7] Exit
+                    7] Sort based on City, State & Zip.
+                    8] Exit
                     """);
             int option = sc.nextInt();
             switch (option) {
@@ -129,10 +130,35 @@ public class AddressBookMain {
                 case 6:{
                     sortContactByFirstName();
                 }
-                case 7:
+                case 7:{
+                    sortByCityStateZip();
+                }
+                case 8:
                     flag = false;
                     break;
             }
+        }
+    }
+
+    private static void sortByCityStateZip() {
+
+        System.out.println("    1.Sort by City ");
+        System.out.println("	2.Sort by State");
+        System.out.println("	3.Sort by Zip");
+        String menuOption;
+        menuOption = sc.nextLine();
+        switch (menuOption) {
+            case "1":
+                contactFunctions.sortByCity();
+                break;
+            case "2":
+                contactFunctions.sortByState();
+                break;
+            case "3":
+                contactFunctions.sortByZip();
+                break;
+            default:
+                System.out.println("Invalid Input");
         }
     }
 

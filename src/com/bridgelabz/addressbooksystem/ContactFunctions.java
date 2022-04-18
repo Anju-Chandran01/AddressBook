@@ -197,4 +197,22 @@ public class ContactFunctions {
         contactList.sort(Comparator.comparing(Contacts::getFirstName));
         contactList.forEach((Contacts contact) -> System.out.println(contact));
     }
+
+    public void sortByCity() {
+        System.out.println("\nSorting Address Book based on City Name");
+        contactList.sort(Comparator.comparing(Contacts::getCity));
+        contactList.forEach((Contacts contact) -> System.out.println(contact));
+    }
+
+    public void sortByState() {
+        System.out.println("\nSorting Address Book based on State Name");
+        contactList.sort(Comparator.comparing(Contacts::getState));
+        contactList.forEach((Contacts contact) -> System.out.println(contact));
+    }
+
+    public void sortByZip() {
+        System.out.println("\nSorting Address Book based on Zip Code");
+        contactList.sort(Comparator.comparing(Contacts::getZip));
+        contactList.forEach((Contacts contact) -> System.out.println(contact));
+    }
 }
