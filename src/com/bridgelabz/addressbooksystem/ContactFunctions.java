@@ -6,6 +6,7 @@ package com.bridgelabz.addressbooksystem;
 
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class ContactFunctions {
 
@@ -181,5 +182,19 @@ public class ContactFunctions {
             System.out.println("First Name: "+contact.getFirstName());
             System.out.println("Last Name: "+contact.getLastName());
         }
+    }
+
+    // Get count of contacts in a particular city
+    public void getCountByCity(String city) {
+        List<Contacts> list = contactList.stream().filter(p->p.getCity().equals(city)).collect(Collectors.toList());
+        long total = Stream.of(list).count();
+        System.out.println("The no: of contact on the given city is " + total);
+    }
+
+    // Get sorted contacts based on first name
+    public void getSortedContactList() {
+        System.out.println("\nSorting Address Book based on First Name");
+        contactList.sort(Comparator.comparing(Contacts::getFirstName));
+        contactList.forEach((Contacts contact) -> System.out.println(contact));
     }
 }
