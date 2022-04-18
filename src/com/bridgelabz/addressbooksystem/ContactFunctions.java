@@ -1,3 +1,7 @@
+
+
+
+
 package com.bridgelabz.addressbooksystem;
 
 import java.util.*;
@@ -42,15 +46,16 @@ public class ContactFunctions {
             if(contact.getFirstName().equals(Name))
             {
 
-                System.out.println("Select an option to edit\n"
-                        +"1] First Name\n"
-                        +"2] Last Name\n"
-                        +"3] Address\n"
-                        +"4] City\n"
-                        +"5] State\n"
-                        +"6] Email"
-                        +"7] phone Number\n"
-                        +"8] ZIP code\n");
+                System.out.println("""
+                        Select an option to edit
+                        1] First Name
+                        2] Last Name
+                        3] Address
+                        4] City
+                        5] State
+                        6] Email7] phone Number
+                        8] ZIP code
+                        """);
 
                 int choice = sc.nextInt();
                 switch (choice) {
